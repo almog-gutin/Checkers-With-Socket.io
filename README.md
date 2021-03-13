@@ -51,8 +51,8 @@ This was wriiten with:
 
 ## < Screenshots />
 
-![Login Page](assets/images/screenshots/login.png)
-![Sign Up Page](assets/images/screenshots/signup.png)
-![Lobby Page](assets/images/screenshots/lobby.png)
-![Game Page](assets/images/screenshots/game.png)
-![End Game Page](assets/images/screenshots/game-end.png)
+![Login Page](assets/images/screenshots/login-page.png)
+![Sign Up Page](assets/images/screenshots/signup-page.png)
+![Lobby Page](assets/images/screenshots/lobby-page.png)
+![Game Page](assets/images/screenshots/game-page.png)
+![End Game Page](assets/images/screenshots/game-end-page.png)
