@@ -51,9 +51,8 @@ This was wriiten with:
 
 ## < Screenshots />
 
-![Desktop Homepage](images/)
-![Desktop Gamepage](images/)
-![Desktop Endpage](images/)
-![Mobile Homepage](images/)
-![Mobile Gamepage](images/)
-![Mobile Endpage](images/)
+![Login Page](assets/images/screenshots/login.png)
+![Sign Up Page](assets/images/screenshots/signup.png)
+![Lobby Page](assets/images/screenshots/lobby.png)
+![Game Page](assets/images/screenshots/game.png)
+![End Game Page](assets/images/screenshots/game-end.png)

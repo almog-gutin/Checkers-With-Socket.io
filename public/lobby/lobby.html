@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Almog Gutin" />
+        <meta name="description" content="Checkers Web App" />
+        <meta name="keywords" content="HTML, JavaScript, CSS, Checkers, Game" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="shortcut icon" type="image/x-icon" href="../../assets/favicon.ico" />
+        <link rel="stylesheet" href="../styles/lobby.css" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js" defer></script>
+        <script src="/socket.io/socket.io.js" defer></script>
+        <script src="lobby.js" defer></script>
+        <script src="lobby-socketio.js" defer></script>
+
+        <title>Checkers</title>
+    </head>
+
+    <body>
+        <div id="main-container" class="main-container" style="">
+            <nav class="navbar">
+                <h1 class="nav-title">Checkers</h1>
+
+                <div class="nav-buttons">
+                    <ul>
+                        <li><span id="account-button">Account</span></li>
+                        <li><span id="signout-button">Sign Out</span></li>
+                        <li><span id="signout-all-button">Sign Out All</span></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="lobby-container">
+                <aside id="players-sidebar" class="players-sidebar">
+                    <h2 class="players-sidebar-title">Lobby</h2>
+                    <hr class="divider" />
+
+                    <div class="players-list"></div>
+                </aside>
+
+                <div id="user-data" class="user-data">
+                    <img />
+                    <h1 class="user-data-name"></h1>
+                    <h3 class="user-data-username"></h3>
+                    <div class="user-data-rating"></div>
+
+                    <div id="game-invites-container" class="game-invites-container">
+                        <h2 class="game-invites-title">Invitations</h2>
+                        <hr class="divider" />
+                        <div id="invitations" class="invitations"></div>
+                    </div>
+                </div>
+
+                <aside id="chat-sidebar" class="chat-sidebar">
+                    <h2 class="chat-sidebar-title">Chat</h2>
+                    <hr class="divider" />
+
+                    <div id="chat-messages" class="chat-messages"></div>
+
+                    <div class="compose-message">
+                        <form id="message-form">
+                            <input type="text" placeholder="Message" required autocomplete="off" />
+                            <button type="submit">Send</button>
+                        </form>
+                    </div>
+                </aside>
+            </main>
+        </div>
+
+        <div id="account-modal" class="account-modal" style="display: none"></div>
+
+        <template id="game-invitations-template">
+            <div class="invite">
+                <span>{{username}} - Wanna play?</span>
+                <div hidden>
+                    <span>{{username}}</span>
+                    <span>{{id}}</span>
+                    <span>{{wins}}</span>
+                    <span>{{losses}}</span>
+                </div>
+                <div>
+                    <button id="declineInvite" type="button">Decline</button>
+                    <button id="acceptInvite" type="button">Accept</button>
+                </div>
+            </div>
+        </template>
+
+        <template id="account-modal-template">
+            <div class="account-modal-buttons">
+                <button type="button">Exit</button>
+                <button type="button">Edit Account</button>
+                <button type="button">Upload Profile Picture</button>
+                <button type="button">Delete Profile Picture</button>
+                <button type="button">Delete Account</button>
+            </div>
+        </template>
+
+        <template id="edit-account-info-template">
+            <form class="edit-account-form">
+                <div class="fields">
+                    <div>
+                        <label>First Name:</label>
+                        <input type="text" placeholder="First Name" autocomplete="off" />
+                    </div>
+
+                    <div>
+                        <label>Last Name:</label>
+                        <input type="text" placeholder="Last Name" autocomplete="off" />
+                    </div>
+
+                    <div>
+                        <label>Username:</label>
+                        <input type="text" placeholder="Username" autocomplete="off" />
+                    </div>
+
+                    <div>
+                        <label>Email:</label>
+                        <input type="email" autocomplete="off" placeholder="Email" />
+                    </div>
+
+                    <div>
+                        <label>Password:</label>
+                        <input type="password" placeholder="Password" autocomplete="off" />
+                    </div>
+                </div>
+
+                <button class="cancel-button" type="button">Cancel</button>
+                <button class="confirm-button" type="submit">Confirm</button>
+            </form>
+        </template>
+
+        <template id="upload-profile-picture-template">
+            <form class="upload-profile-picture-form">
+                <button type="button">Cancel</button>
+                <input type="file" id="profile-picture" accept=".jpeg,.jpg,.png" />
+                <button type="submit">Upload</button>
+            </form>
+        </template>
+
+        <template id="players-list-template">
+            <ul>
+                {{#players}}
+                <li>
+                    <span hidden>{{id}}</span>
+                    <span>{{username}}</span>
+                    <span hidden>{{rating.wins}}</span>
+                    <span hidden>{{rating.losses}}</span>
+                    <button id="invite-to-play" type="button">Invite To Play</button>
+                </li>
+                {{/players}}
+            </ul>
+        </template>
+
+        <template id="message-template">
+            <div class="message">
+                <p>
+                    <span class="message-name">{{username}}</span>
+                    <span class="message-meta">{{createdAt}}</span>
+                </p>
+                <p class="user-message">{{message}}</p>
+            </div>
+        </template>
+    </body>
+</html>

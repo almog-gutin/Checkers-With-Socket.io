@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Almog Gutin" />
+        <meta name="description" content="Checkers Web App" />
+        <meta name="keywords" content="HTML, JavaScript, CSS, Checkers, Game" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico" />
+        <link rel="stylesheet" href="styles/login-page.css" />
+        <script src="app.js" defer></script>
+        <title>Checkers</title>
+    </head>
+
+    <body>
+        <div class="main-container">
+            <div id="login-signup-container" class="login-signup-container">
+                <h2 class="title">Login/Sign up To Play Checkers</h2>
+                <hr class="divider" />
+            </div>
+        </div>
+
+        <template id="login-form-template">
+            <form id="login-form">
+                <div class="fields">
+                    <div>
+                        <label>Email:</label>
+                        <input type="email" placeholder="Email" autocomplete="off" required />
+                    </div>
+
+                    <div>
+                        <label>Password:</label>
+                        <input type="password" placeholder="Password" minlength="8" autocomplete="off" required />
+                    </div>
+                </div>
+
+                <button class="login-signup-button" type="button">Sign Up</button>
+                <button class="login-login-button" type="submit">Login</button>
+            </form>
+        </template>
+
+        <template id="signup-form-template">
+            <form id="signup-form">
+                <div class="fields">
+                    <div>
+                        <label>First Name:</label>
+                        <input type="text" placeholder="First Name" autocomplete="off" required />
+                    </div>
+
+                    <div>
+                        <label>Last Name:</label>
+                        <input type="text" placeholder="Last Name" autocomplete="off" required />
+                    </div>
+
+                    <div>
+                        <label>Username:</label>
+                        <input type="text" placeholder="Username" autocomplete="off" required />
+                    </div>
+
+                    <div>
+                        <label>Email:</label>
+                        <input type="email" placeholder="Email" autocomplete="off" required />
+                    </div>
+
+                    <div>
+                        <label>Password:</label>
+                        <input type="password" placeholder="Password" autocomplete="off" required />
+                    </div>
+                </div>
+
+                <button class="signup-cancel-button" type="button">Cancel</button>
+                <button class="signup-signup-button" type="submit">Sign Up</button>
+            </form>
+        </template>
+    </body>
+</html>

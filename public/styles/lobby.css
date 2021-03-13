@@ -1,0 +1,393 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+}
+
+body {
+    margin: 0;
+    background-color: #262626;
+}
+
+/* Desktop */
+.main-container {
+    height: 100vh;
+
+    display: grid;
+    grid-template-rows: 55px auto;
+}
+
+.navbar {
+    color: #d9d9d9;
+    background-color: #4b4b4b;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    margin: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: 2rem;
+}
+
+.nav-buttons ul {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+}
+
+.nav-buttons li {
+    list-style: none;
+}
+
+.nav-buttons li span {
+    padding: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    display: block;
+}
+
+.nav-buttons li span:hover {
+    background-color: #d9d9d960;
+}
+
+.lobby-container {
+    display: flex;
+}
+
+.players-sidebar {
+    width: 20%;
+    height: 100%;
+    background-color: #d9d9d9;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.players-sidebar-title,
+.chat-sidebar-title {
+    width: 100%;
+    height: 5%;
+    text-align: center;
+    color: #262626;
+}
+
+.divider {
+    width: 90%;
+    height: 5px;
+    background-color: #262626;
+}
+
+.players-list {
+    height: 90%;
+    width: 95%;
+    margin-bottom: 5px;
+    background-color: #262626;
+    overflow-y: scroll;
+}
+
+.players-list ul {
+    padding-left: 5px;
+}
+
+.players-list li {
+    width: 95%;
+    min-height: 50px;
+    margin: 16px auto;
+    background-color: #d9d9d9;
+    border: 2px solid black;
+    border-radius: 5px;
+    list-style-type: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.players-list span {
+    height: 100%;
+    margin: auto;
+    font-size: 1rem;
+}
+
+.players-list button {
+    width: 100px;
+    height: 40px;
+    margin-right: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #262626;
+    color: #d9d9d9;
+    cursor: pointer;
+}
+
+.user-data {
+    width: 60%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-data img {
+    width: 200px;
+    height: 200px;
+    border: 8px solid black;
+    border-radius: 5px;
+}
+
+.user-data-name {
+    font-size: 3rem;
+    margin: 20px auto 10px;
+    color: #d9d9d9;
+}
+
+.user-data-username {
+    font-size: 2rem;
+    margin: 0 auto 10px;
+    color: #d9d9d9;
+}
+
+.user-data-rating {
+    font-size: 1.5rem;
+    color: #d9d9d9;
+}
+
+.game-invites-container {
+    width: 80%;
+    height: 20%;
+    margin-top: 20px;
+    border: 5px solid black;
+    border-radius: 5px;
+    background-color: #d9d9d9;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-invites-title {
+    color: #262626;
+    font-size: 1rem;
+    margin: 5px auto;
+}
+
+.invitations {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.invite {
+    width: 90%;
+    min-height: 40px;
+    margin-bottom: 10px;
+    border: 5px solid black;
+    border-radius: 5px;
+    background-color: #262626;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.invite span {
+    width: auto;
+    font-size: 0.8rem;
+    color: #d9d9d9;
+}
+
+.invite button {
+    width: 80px;
+    height: 25px;
+    margin: auto 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    background-color: #d9d9d9;
+    cursor: pointer;
+}
+
+.chat-sidebar {
+    width: 20%;
+    height: 100%;
+    background-color: #d9d9d9;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat-messages {
+    width: 95%;
+    height: 85%;
+    margin-bottom: 5px;
+    padding: 24px 24px 0;
+    background-color: #262626;
+    overflow-y: scroll;
+}
+
+.compose-message {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.compose-message input {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+}
+
+.compose-message button {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+    border: 2px solid black;
+    background-color: #262626;
+    color: #d9d9d9;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.message {
+    width: 98%;
+    min-height: 50px;
+    margin-bottom: 16px;
+    background-color: #d9d9d9;
+    border: 2px solid black;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.message p {
+    margin: 5px;
+}
+
+.messasge-name {
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+.message-meta {
+    color: #777;
+    font-size: 0.8rem;
+}
+
+.user-message {
+    font-size: 0.8rem;
+}
+
+.account-modal {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-modal-buttons,
+.upload-profile-picture-form {
+    width: 40vh;
+    height: 40vh;
+    border: 8px solid black;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.account-modal-buttons button,
+.upload-profile-picture-form button,
+.upload-profile-picture-form div {
+    width: 150px;
+    height: 50px;
+    background-color: #d9d9d9;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.upload-profile-picture-form input {
+    position: relative;
+}
+
+.edit-account-form {
+    width: 60vh;
+    min-height: 40vh;
+    border: 8px solid black;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3fr 0.5fr;
+    grid-template-areas: 'fields fields' 'button-1 button-2';
+}
+
+.fields {
+    grid-area: fields;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.fields div {
+    width: 80%;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.fields div label {
+    color: #d9d9d9;
+    font-size: 1.2rem;
+}
+
+.fields div input {
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+}
+
+.fields div input,
+.fields div input::placeholder {
+    font-size: 1rem;
+}
+
+.cancel-button {
+    grid-area: button-1;
+}
+
+.confirm-button {
+    grid-area: button-2;
+}
+
+.cancel-button,
+.confirm-button {
+    background-color: #d9d9d9;
+    font-size: 1.2rem;
+    border: 5px double black;
+    height: 75px;
+    cursor: pointer;
+}
+
+/* Mobile */

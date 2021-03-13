@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+}
+
+body {
+    margin: 0;
+    background-color: #262626;
+}
+
+/* Desktop */
+.main-container {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    width: 60vh;
+    height: 80%;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 80% 10% 10%;
+    grid-template-areas: 'board board' 'resign draw ' 'white-turn black-turn';
+}
+
+.board {
+    grid-area: board;
+
+    height: 60vh;
+    width: 100%;
+    margin: auto;
+    border: 10px solid black;
+
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.board div {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.board div:nth-child(-2n + 8),
+.board div:nth-child(8) ~ div:nth-child(-2n + 15),
+.board div:nth-child(16) ~ div:nth-child(-2n + 24),
+.board div:nth-child(24) ~ div:nth-child(-2n + 31),
+.board div:nth-child(32) ~ div:nth-child(-2n + 40),
+.board div:nth-child(40) ~ div:nth-child(-2n + 47),
+.board div:nth-child(48) ~ div:nth-child(-2n + 56),
+.board div:nth-child(56) ~ div:nth-child(-2n + 63) {
+    background-color: #ba7a3a;
+}
+
+.no-piece {
+    background-color: #f0d2b4;
+}
+
+.white-piece,
+.black-piece {
+    width: 75%;
+    height: 75%;
+    margin: 7px auto;
+    border-radius: 50%;
+    border: 3px solid red;
+}
+
+.black-piece {
+    background-color: black;
+}
+
+.white-piece {
+    background-color: white;
+}
+
+.king {
+    border: 3px solid yellow;
+}
+
+.selected-piece {
+    border: 1px solid green;
+}
+
+button {
+    font-size: 1.5rem;
+    border: 10px double black;
+    background-color: #d9d9d9;
+    cursor: pointer;
+}
+
+.game-resign-button,
+.game-draw-button {
+    width: 100%;
+    height: 100%;
+}
+
+.game-resign-button {
+    grid-area: resign;
+}
+
+.game-draw-button {
+    grid-area: draw;
+}
+
+.white-turn,
+.black-turn {
+    width: 100%;
+    height: 80%;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.white-turn {
+    grid-area: white-turn;
+    margin: 10px 0 10px auto;
+    border-right: 2px solid black;
+}
+
+.black-turn {
+    grid-area: black-turn;
+    margin: 10px auto 10px 0;
+    border-left: 2px solid black;
+}
+
+.game-over-modal,
+.draw-modal,
+.rematch-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.568);
+
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.draw-modal div,
+.game-over-modal div,
+.rematch-modal div {
+    width: 60vh;
+    height: 40vh;
+    background-color: #262626;
+    border: 8px solid black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.draw-modal-title,
+.game-over-modal-title,
+.game-over-modal-rating,
+.rematch-modal-title {
+    width: 70%;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #d9d9d9;
+}
+
+.draw-modal-yes-button,
+.draw-modal-no-button,
+.game-over-modal-rematch-button,
+.game-over-modal-home-button,
+.rematch-modal-yes-button,
+.rematch-modal-no-button {
+    width: 150px;
+    height: 50px;
+    margin: 10px;
+    background-color: #d9d9d9;
+}
+
+/* Mobile */
